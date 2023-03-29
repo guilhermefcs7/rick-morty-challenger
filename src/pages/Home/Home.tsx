@@ -93,13 +93,14 @@ function Home() {
   }
 
   const fetchStatusCharacters = async (status: string) => {
-    const url = `https://rickandmortyapi.com/api/character/?status=${status}`;
+    const url = `https://rickandmortyapi.com/api/character/?name=${searchTerm}&status=${status}`;
     const response = await fetch(url);
     const data = await response.json();
     return data.results;
   };
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     handleSubmit(searchTerm);
   };
 

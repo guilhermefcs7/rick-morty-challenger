@@ -1,40 +1,99 @@
 import styled from "styled-components";
+import { colors, fontSizes, measurements } from "../../../constants";
+import { LoadMoreButton } from "../Home/styles";
+
+export const PageTurnerGuide = styled(LoadMoreButton)``;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
   justify-content: center;
+
+  background: url("/images/rickAndMorty.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+`;
+
+export const ContentArea = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
   width: 100%;
-  height: 100%;
-  padding: 24px;
+  max-width: 40%;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    max-width: 70%;
+    > h1,
+    h2,
+    button {
+      display: flex;
+    }
+  }
+
+  > h1,
+  h2,
+  button {
+    display: none;
+  }
+`;
+export const ImageCardContainer = styled.div`
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+
+  border-radius: 8px;
+  padding: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 48px;
 `;
 
 export const Image = styled.img`
   width: 100%;
   max-width: 400px;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  padding: ${measurements.medium};
+
+  border-radius: 28px;
+  object-fit: cover;
+`;
+
+export const DetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Name = styled.h1`
-  font-size: 2rem;
-  margin: 0;
+  margin-bottom: ${measurements.medium};
+
+  font-size: ${fontSizes.title};
+  line-height: 54px;
+  font-weight: 700;
 `;
 
 export const Status = styled.h2`
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: ${fontSizes.description};
+  line-height: 1.6;
+  font-weight: 500;
+  color: ${colors.white};
 `;
 
-export const DetailsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 1rem;
-`;
+export const Species = styled(Status)``;
 
-export const Detail = styled.p`
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-`;
+export const Detail = styled(Status)``;

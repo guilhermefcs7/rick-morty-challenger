@@ -1,4 +1,4 @@
-import { fetchApiData } from "../../api/rickAndMortyApi";
+import { fetchApiData } from "../api/rickAndMortyApi";
 import axios from "axios";
 
 import React from "react";
@@ -18,16 +18,13 @@ import {
   CardTitle,
   LoadMoreButton,
 } from "./styles";
-import { Character } from "../../../../types/character";
+import { Character } from "../../../types/character";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 function Home() {
   const [characters, setCharacters] = React.useState<Character[]>([]);
   const [nextPage, setNextPage] = React.useState<string | null>(null);
   const [searchTerm, setSearchTerm] = React.useState("");
-
-  const router = useRouter();
 
   React.useEffect(() => {
     async function fetchData() {
@@ -92,14 +89,14 @@ function Home() {
           {characters.map((result) => {
             const { id, name, image } = result;
             return (
-              <Link key={id} href={`/CharacterDetails/${id}`}>
-                <Card>
-                  <li>
+              <Card key={id}>
+                <li>
+                  <Link href={`/CharacterDetails/${id}`}>
                     <Image src={image} alt={`${name} thumb`} />
-                  </li>
-                  <CardTitle>{name} </CardTitle>
-                </Card>
-              </Link>
+                  </Link>
+                </li>
+                <CardTitle>{name} </CardTitle>
+              </Card>
             );
           })}
         </Grid>

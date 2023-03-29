@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { fontSizes, measurements, colors } from "../../../../constants";
+import { fontSizes, measurements, colors } from "../../../constants";
 
 export const Container = styled.div`
   display: flex;

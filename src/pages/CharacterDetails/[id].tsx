@@ -1,7 +1,11 @@
 import axios from "axios";
+
 import Link from "next/link";
+
 import { useRouter } from "next/router";
+
 import React from "react";
+
 import { CharacterDetail } from "../../../types/characterDetail";
 
 import {
@@ -34,10 +38,6 @@ function CharacterDetails() {
       );
       const detail = response.data;
 
-      const { episode } = detail;
-
-      console.log(detail);
-
       setCharacterDetail(detail);
     }
 
@@ -52,13 +52,18 @@ function CharacterDetails() {
             <>
               <ImageCardContainer>
                 <Image src={characterDetail.image} alt={characterDetail.name} />
+
                 <Name> {characterDetail.name}</Name>
+
                 <DetailContainer>
                   <Species>Species: {characterDetail.species}</Species>
+
                   <Status>Status: {characterDetail.status}</Status>
 
                   <Detail>Gender: {characterDetail.gender}</Detail>
+
                   <Detail>Origin: {characterDetail.origin?.name}</Detail>
+
                   <Detail>
                     Location (last seen): {characterDetail.location?.name}
                   </Detail>

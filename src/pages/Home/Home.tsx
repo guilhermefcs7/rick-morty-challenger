@@ -1,5 +1,8 @@
 import { fetchApiData } from "../api/rickAndMortyApi";
+
 import axios from "axios";
+
+import debounce from "lodash/debounce";
 
 import React from "react";
 
@@ -18,13 +21,22 @@ import {
   CardTitle,
   LoadMoreButton,
 } from "./styles";
+
 import { Character } from "../../../types/character";
+
 import Link from "next/link";
 
 function Home() {
   const [characters, setCharacters] = React.useState<Character[]>([]);
+
   const [nextPage, setNextPage] = React.useState<string | null>(null);
+
   const [searchTerm, setSearchTerm] = React.useState("");
+
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const [isSearchButtonLoading, setIsSearchButtonLoading] =
+    React.useState(false);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -32,6 +44,7 @@ function Home() {
         const data = await fetchApiData();
 
         setCharacters(data.results);
+
         setNextPage(data.info.next);
       } catch (error) {
         console.log(error);
@@ -42,27 +55,45 @@ function Home() {
   }, []);
 
   async function handleLoadMoreCharacters(): Promise<void> {
+    setIsLoading(true);
+
     try {
       const response = await axios.get(nextPage as string);
+
       setCharacters([...characters, ...response.data.results]);
+
       setNextPage(response.data.info.next);
     } catch (error) {
       console.log(error);
     }
+
+    setIsLoading(false);
   }
 
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchTerm(event.target.value);
+
+    handleDebouncedSearch(event.target.value);
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function handleSubmit(value: string) {
+    if (searchTerm) {
+      setIsSearchButtonLoading(true);
 
-    fetch(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`)
-      .then((response) => response.json())
-      .then((data) => setCharacters(data.results))
-      .catch((error) => console.error(error));
+      fetch(`https://rickandmortyapi.com/api/character/?name=${value}`)
+        .then((response) => response.json())
+        .then((data) => setCharacters(data.results))
+        .catch((error) => console.error(error));
+
+      setIsSearchButtonLoading(false);
+    }
   }
+
+  const handleSearchSubmit = () => {
+    handleSubmit(searchTerm);
+  };
+
+  const handleDebouncedSearch = debounce(handleSubmit, 500);
 
   return (
     <Container>
@@ -73,7 +104,7 @@ function Home() {
             Discover more about the universe of rick and morty
           </Description>
 
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSearchSubmit}>
             <InputSearch
               onChange={handleSearch}
               type="search"
@@ -81,7 +112,9 @@ function Home() {
               placeholder="Search for your character "
             />
 
-            <ButtonSearch>Search</ButtonSearch>
+            <ButtonSearch>
+              {isSearchButtonLoading ? "Loading..." : "Search"}
+            </ButtonSearch>
           </Form>
         </HeaderContent>
 
@@ -102,8 +135,10 @@ function Home() {
         </Grid>
 
         {nextPage && (
-          <LoadMoreButton onClick={handleLoadMoreCharacters}>
-            Load More
+          <LoadMoreButton
+            disabled={isLoading}
+            onClick={handleLoadMoreCharacters}>
+            {isLoading ? "Loading..." : "Load More"}
           </LoadMoreButton>
         )}
       </Content>

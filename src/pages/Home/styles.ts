@@ -55,19 +55,40 @@ export const InputSearch = styled.input`
   font-size: 16px;
 `;
 
+export const Select = styled.select`
+  padding: 0.5rem;
+  margin-right: ${measurements.medium};
+
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid ${colors.gray};
+  outline: none;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &:focus {
+    border-color: ${colors.chiffonBlue};
+  }
+`;
+
 export const ButtonSearch = styled.button`
   padding: 10px 20px;
 
-  background-color: #99dafb;
+  background-color: ${colors.chiffonBlue};
   border: none;
   border-radius: 5px;
-  color: #fff;
+  color: ${colors.white};
   cursor: pointer;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #00bcd4;
+    background-color: ${colors.irisBlue};
   }
 `;
 
@@ -87,9 +108,14 @@ export const Card = styled.div`
   padding: 1rem;
   margin-top: ${measurements.medium};
 
-  background-color: #fff;
+  background-color: ${colors.white};
   border-radius: 0.5rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-20px);
+  }
 `;
 
 export const Image = styled.img`
@@ -107,7 +133,7 @@ export const CardTitle = styled.h2`
   font-size: ${fontSizes.subtitle};
   line-height: 24px;
   font-weight: 600;
-  color: #333;
+  color: ${colors.gray};
   transition: all 0.3s ease-in-out;
   text-decoration: underline;
   text-align: center;
@@ -117,16 +143,16 @@ export const LoadMoreButton = styled.button`
   padding: 10px 20px;
   margin-top: ${measurements.medium};
 
-  background-color: #61dafb;
+  background-color: ${colors.turquoiseBlue};
   border: none;
   border-radius: 5px;
-  color: #fff;
+  color: ${colors.white};
   cursor: pointer;
   font-size: 16px;
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    background-color: #00bcd4;
+    background-color: ${colors.irisBlue};
     border-radius: 50px;
   }
 `;

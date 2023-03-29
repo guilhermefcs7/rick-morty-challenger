@@ -14,6 +14,7 @@ import {
   Description,
   Form,
   InputSearch,
+  Select,
   ButtonSearch,
   Grid,
   Card,
@@ -32,6 +33,8 @@ function Home() {
   const [nextPage, setNextPage] = React.useState<string | null>(null);
 
   const [searchTerm, setSearchTerm] = React.useState("");
+
+  const [status, setStatus] = React.useState("");
 
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -89,9 +92,29 @@ function Home() {
     }
   }
 
+  const fetchStatusCharacters = async (status: string) => {
+    const url = `https://rickandmortyapi.com/api/character/?status=${status}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.results;
+  };
+
   const handleSearchSubmit = () => {
     handleSubmit(searchTerm);
   };
+
+  React.useEffect(() => {
+    async function handleFilterSubmit() {
+      try {
+        const data = await fetchStatusCharacters(status);
+        setCharacters(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    handleFilterSubmit();
+  }, [status]);
 
   const handleDebouncedSearch = debounce(handleSubmit, 500);
 
@@ -111,6 +134,13 @@ function Home() {
               name="query"
               placeholder="Search for your character "
             />
+
+            <Select value={status} onChange={(e) => setStatus(e.target.value)}>
+              <option value="">Status</option>
+              <option value="Alive">Alive</option>
+              <option value="Dead">Dead</option>
+              <option value="unknown">Unknown</option>
+            </Select>
 
             <ButtonSearch>
               {isSearchButtonLoading ? "Loading..." : "Search"}

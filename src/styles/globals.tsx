@@ -4,7 +4,7 @@ import { colors } from "../../constants";
 const GlobalStyle = createGlobalStyle`
   html,
   body {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: 'antialiased';
   }
   a {

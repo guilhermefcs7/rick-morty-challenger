@@ -23,7 +23,7 @@ export const HeaderContent = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: ${measurements.small};
+  margin-bottom: ${measurements.medium};
 
   font-size: ${fontSizes.title};
   line-height: 34px;

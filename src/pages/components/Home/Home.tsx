@@ -92,18 +92,14 @@ function Home() {
           {characters.map((result) => {
             const { id, name, image } = result;
             return (
-              <Card key={id}>
-                <li>
-                  <Link href={`/CharacterDetails?id=${id}`} passHref>
-                    <Image
-                      src={image}
-                      alt={`${name} thumb`}
-                      onClick={() => router.push(`/CharacterDetails?id=${id}`)}
-                    />
-                  </Link>
-                </li>
-                <CardTitle>{name} </CardTitle>
-              </Card>
+              <Link key={id} href={`/CharacterDetails/${id}`}>
+                <Card>
+                  <li>
+                    <Image src={image} alt={`${name} thumb`} />
+                  </li>
+                  <CardTitle>{name} </CardTitle>
+                </Card>
+              </Link>
             );
           })}
         </Grid>

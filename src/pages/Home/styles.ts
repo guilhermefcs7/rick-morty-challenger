@@ -28,6 +28,10 @@ export const Title = styled.h1`
   font-size: ${fontSizes.title};
   line-height: 34px;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const Description = styled.span`
@@ -36,6 +40,12 @@ export const Description = styled.span`
   font-size: ${fontSizes.description};
   line-height: 12px;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+  }
 `;
 
 export const Form = styled.form`
@@ -53,6 +63,10 @@ export const InputSearch = styled.input`
   border: none;
   border-radius: 5px;
   font-size: 16px;
+
+  @media (max-width: 768px) {
+    width: 150px;
+  }
 `;
 
 export const Select = styled.select`
@@ -99,6 +113,10 @@ export const Grid = styled.ul`
   grid-gap: 20px;
   list-style: none;
   grid-gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(20px, 1fr));
+  }
 `;
 
 export const Card = styled.div`

@@ -77,6 +77,7 @@ export const Image = styled.img`
 export const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: ${measurements.medium};
 `;
 
 export const Name = styled.h1`

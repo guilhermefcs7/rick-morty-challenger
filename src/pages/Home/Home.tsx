@@ -115,7 +115,7 @@ function Home() {
     }
 
     handleFilterSubmit();
-  }, [status]);
+  }, [fetchStatusCharacters, status]);
 
   const handleDebouncedSearch = debounce(handleSubmit, 500);
 

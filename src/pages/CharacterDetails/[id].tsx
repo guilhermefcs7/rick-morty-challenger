@@ -5,20 +5,21 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import React from "react";
+import { BadgeButton } from "../../../components";
 
 import { CharacterDetail } from "../../../types/characterDetail";
 
 import {
   Container,
-  ContentArea,
-  ImageCardContainer,
-  Image,
   DetailContainer,
-  Name,
   Species,
-  Status,
   Detail,
   PageTurnerGuide,
+  CardContainer,
+  Card,
+  CardImage,
+  CardInfo,
+  CardTitle,
 } from "./styles";
 
 function CharacterDetails() {
@@ -45,39 +46,36 @@ function CharacterDetails() {
   }, [router.asPath]);
 
   return (
-    <>
-      <Container>
-        <ContentArea>
-          {characterDetail && (
-            <>
-              <ImageCardContainer>
-                <Image src={characterDetail.image} alt={characterDetail.name} />
+    <Container>
+      <CardContainer>
+        {characterDetail && (
+          <Card>
+            <CardImage src={characterDetail.image} alt={characterDetail.name} />
 
-                <Name> {characterDetail.name}</Name>
+            <CardInfo>
+              <DetailContainer>
+                <CardTitle>{characterDetail.name}</CardTitle>
 
-                <DetailContainer>
-                  <Species>Species: {characterDetail.species}</Species>
+                <BadgeButton status={characterDetail.status} />
 
-                  <Status>Status: {characterDetail.status}</Status>
+                <Species>Species: {characterDetail.species}</Species>
 
-                  <Detail>Gender: {characterDetail.gender}</Detail>
+                <Detail>Gender: {characterDetail.gender}</Detail>
 
-                  <Detail>Origin: {characterDetail.origin?.name}</Detail>
+                <Detail>Origin: {characterDetail.origin?.name}</Detail>
 
-                  <Detail>
-                    Location (last seen): {characterDetail.location?.name}
-                  </Detail>
-
-                  <Link href="/">
-                    <PageTurnerGuide>See more characters</PageTurnerGuide>
-                  </Link>
-                </DetailContainer>
-              </ImageCardContainer>
-            </>
-          )}
-        </ContentArea>
-      </Container>
-    </>
+                <Detail>
+                  Location (last seen): {characterDetail.location?.name}
+                </Detail>
+                <Link href="/">
+                  <PageTurnerGuide>See more characters</PageTurnerGuide>
+                </Link>
+              </DetailContainer>
+            </CardInfo>
+          </Card>
+        )}
+      </CardContainer>
+    </Container>
   );
 }
 

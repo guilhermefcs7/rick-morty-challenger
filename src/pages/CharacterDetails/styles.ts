@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { colors, fontSizes, measurements } from "../../../constants";
 import { LoadMoreButton } from "../Home/styles";
 
-export const PageTurnerGuide = styled(LoadMoreButton)``;
+export const PageTurnerGuide = styled(LoadMoreButton)`
+  margin-bottom: ${measurements.medium};
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -18,20 +20,13 @@ export const Container = styled.div`
   background-attachment: fixed;
 `;
 
-export const ContentArea = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+export const CardContainer = styled.div`
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  width: 100%;
-  max-width: 40%;
-
-  transition: all 0.3s ease-in-out;
+  height: 300px;
 
   &:hover {
-    max-width: 70%;
     > h1,
     h2,
     button {
@@ -45,47 +40,57 @@ export const ContentArea = styled.div`
     display: none;
   }
 `;
-export const ImageCardContainer = styled.div`
-  position: absolute;
 
+export const CardImage = styled.img`
+  width: 400px;
+  height: 400px;
+
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+`;
+
+export const Card = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  width: 400px;
+  height: 400px;
 
-  background-color: #4158d0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(
     43deg,
     #4158d0 0%,
     #c850c0 46%,
     #ffcc70 100%
   );
+  transition: width 0.6s ease;
 
-  border-radius: 8px;
-  padding: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 48px;
+  &:hover {
+    width: 900px;
+  }
 `;
 
-export const Image = styled.img`
-  width: 100%;
-  max-width: 400px;
-  padding: ${measurements.medium};
-
-  border-radius: 28px;
-  object-fit: cover;
-`;
-
-export const DetailContainer = styled.div`
+export const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${measurements.medium};
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20px;
 `;
 
-export const Name = styled.h1`
-  margin-bottom: ${measurements.medium};
+export const CardTitle = styled.h1`
+  margin-top: ${measurements.medium};
+  margin-bottom: ${measurements.small};
 
   font-size: ${fontSizes.title};
   line-height: 54px;
   font-weight: 700;
+`;
+
+export const DetailContainer = styled.div`
+  height: 400px;
+  justify-content: center;
 `;
 
 export const Status = styled.h2`
@@ -98,3 +103,8 @@ export const Status = styled.h2`
 export const Species = styled(Status)``;
 
 export const Detail = styled(Status)``;
+
+export const CardDescription = styled.p`
+  font-size: 16px;
+  color: #555;
+`;

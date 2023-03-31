@@ -48,7 +48,7 @@ which should contain as much information as possible.
 
 ---
 
-# To run tests:
+### To run tests:
 
 - `ctrl + j - Windows | Ctrl + Shift + P Terminal: New Terminal - Mac`
 - `yarn test --config jest.config.js`

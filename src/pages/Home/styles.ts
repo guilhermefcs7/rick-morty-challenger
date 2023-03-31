@@ -173,6 +173,23 @@ export const CardTitle = styled.h2`
   text-align: center;
 `;
 
+export const FavoriteButton = styled.button`
+  padding: 10px 20px;
+  margin-top: ${measurements.medium};
+
+  border: 2px solid;
+  border-radius: 5px;
+  color: ${colors.black};
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: ${colors.irisBlue};
+  }
+`;
+
 export const LoadMoreButton = styled.button`
   padding: 10px 20px;
   margin-top: ${measurements.medium};
@@ -190,3 +207,5 @@ export const LoadMoreButton = styled.button`
     border-radius: 50px;
   }
 `;
+
+export const FavoritePage = styled(LoadMoreButton)``;

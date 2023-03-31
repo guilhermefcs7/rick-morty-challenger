@@ -9,6 +9,8 @@ import { BadgeButton } from "../../../components";
 
 import { CharacterDetail } from "../../../types/characterDetail";
 
+import { FavoriteContext } from "../CharacterFavorite/context/FavoriteContext";
+
 import {
   Container,
   DetailContainer,
@@ -45,6 +47,8 @@ function CharacterDetails() {
     fetchCharacterDetail();
   }, [router.asPath]);
 
+  const { favorites, setFavorites } = React.useContext(FavoriteContext);
+
   return (
     <Container>
       <CardContainer>
@@ -67,6 +71,7 @@ function CharacterDetails() {
                 <Detail>
                   Location (last seen): {characterDetail.location?.name}
                 </Detail>
+
                 <Link href="/">
                   <PageTurnerGuide>See more characters</PageTurnerGuide>
                 </Link>

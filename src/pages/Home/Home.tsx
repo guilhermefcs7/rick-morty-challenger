@@ -12,6 +12,7 @@ import {
   HeaderContent,
   Title,
   Description,
+  FavoritePage,
   Form,
   InputSearch,
   Select,
@@ -20,6 +21,7 @@ import {
   Card,
   Image,
   CardTitle,
+  FavoriteButton,
   LoadMoreButton,
   SelectLabelText,
 } from "./styles";
@@ -27,6 +29,7 @@ import {
 import { Character } from "../../../types/character";
 
 import Link from "next/link";
+import { FavoriteContext } from "../CharacterFavorite/context/FavoriteContext";
 
 function Home() {
   const [characters, setCharacters] = React.useState<Character[]>([]);
@@ -41,6 +44,24 @@ function Home() {
 
   const [isSearchButtonLoading, setIsSearchButtonLoading] =
     React.useState(false);
+
+  const [clickedIds, setClickedIds] = React.useState([]);
+
+  const { favorites, setFavorites } = React.useContext(FavoriteContext);
+
+  const addCharacterToFavorites = (id: number) => {
+    const characterToAdd = characters.find((character) => character.id === id);
+
+    if (characterToAdd) {
+      if (!favorites.some((character) => character.id === id)) {
+        setFavorites([...favorites, characterToAdd]);
+      }
+
+      if (!clickedIds.includes(id)) {
+        setClickedIds([...clickedIds, id]);
+      }
+    }
+  };
 
   React.useEffect(() => {
     async function fetchData() {
@@ -125,9 +146,14 @@ function Home() {
       <Content>
         <HeaderContent>
           <Title>Rick And Morty Challenger</Title>
+
           <Description>
             Discover more about the universe of rick and morty
           </Description>
+
+          <Link href={`/CharacterFavorite/Favorites`}>
+            <FavoritePage>favoritos</FavoritePage>
+          </Link>
 
           <Form onSubmit={handleSearchSubmit}>
             <InputSearch
@@ -166,6 +192,12 @@ function Home() {
                   </Link>
                 </li>
                 <CardTitle>{name} </CardTitle>
+                <FavoriteButton
+                  onClick={() => {
+                    addCharacterToFavorites(id);
+                  }}>
+                  {clickedIds.includes(id) ? "Favorited!" : "Favorite"}
+                </FavoriteButton>
               </Card>
             );
           })}

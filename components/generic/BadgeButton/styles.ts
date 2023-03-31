@@ -6,8 +6,12 @@ interface BadgeProps {
 }
 
 export const Badge = styled.button<BadgeProps>`
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5rem;
+  width: 100%;
+  height: 60px;
 
   border-radius: 10px;
   background-color: ${(props) => props.BackgroundColor};

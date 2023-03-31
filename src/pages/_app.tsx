@@ -2,6 +2,7 @@ import GlobalStyle from "../styles/globals";
 import Head from "next/head";
 
 import type { AppProps } from "next/app";
+import FavoriteProvider from "./CharacterFavorite/context/FavoriteContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Rick and Morty Challenger</title>
       </Head>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <FavoriteProvider>
+        <Component {...pageProps} />
+      </FavoriteProvider>
     </>
   );
 }

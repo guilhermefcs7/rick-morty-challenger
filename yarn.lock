@@ -3392,6 +3392,11 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
+"next-router-provider@^0.6.0":
+  "integrity" "sha512-CAAxH8EnauaJb14xyCqYLPwqydHWpeceFwGL255ss7RTSBkcqEFo/skN1nDQ/Yc0ps0HwBnMx05mHVgJnmiC4w=="
+  "resolved" "https://registry.npmjs.org/next-router-provider/-/next-router-provider-0.6.0.tgz"
+  "version" "0.6.0"
+
 "next@13.2.4":
   "integrity" "sha512-g1I30317cThkEpvzfXujf0O4wtaQHtDCLhlivwlTJ885Ld+eOgcz7r3TGQzeU+cSRoNHtD8tsJgzxVdYojFssw=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.2.4.tgz"

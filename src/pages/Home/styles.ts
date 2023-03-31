@@ -69,9 +69,21 @@ export const InputSearch = styled.input`
   }
 `;
 
+export const SelectLabelText = styled.label`
+  font-size: ${fontSizes.label};
+  line-height: 12px;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 export const Select = styled.select`
   padding: 0.5rem;
   margin-right: ${measurements.medium};
+  margin-left: ${measurements.medium};
 
   background-color: white;
   color: black;
@@ -87,6 +99,10 @@ export const Select = styled.select`
 
   &:focus {
     border-color: ${colors.chiffonBlue};
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
   }
 `;
 

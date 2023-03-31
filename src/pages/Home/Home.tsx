@@ -21,6 +21,7 @@ import {
   Image,
   CardTitle,
   LoadMoreButton,
+  SelectLabelText,
 } from "./styles";
 
 import { Character } from "../../../types/character";
@@ -135,13 +136,18 @@ function Home() {
               name="query"
               placeholder="Search for your character "
             />
-
-            <Select value={status} onChange={(e) => setStatus(e.target.value)}>
-              <option value="">Status</option>
-              <option value="Alive">Alive</option>
-              <option value="Dead">Dead</option>
-              <option value="unknown">Unknown</option>
-            </Select>
+            <SelectLabelText htmlFor="status">
+              Search by status:
+              <Select
+                id="status"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}>
+                <option value="">Status</option>
+                <option value="Alive">Alive</option>
+                <option value="Dead">Dead</option>
+                <option value="unknown">Unknown</option>
+              </Select>
+            </SelectLabelText>
 
             <ButtonSearch>
               {isSearchButtonLoading ? "Loading..." : "Search"}

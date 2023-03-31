@@ -46,7 +46,8 @@ which should contain as much information as possible.
 - [Frontend]()
 
 ---
-# Run the tests:
+
+# To run tests:
 
 - `yarn test --config jest.config.js`
 

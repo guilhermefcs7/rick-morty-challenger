@@ -15,15 +15,22 @@ import Link from "next/link";
 function FavoriteCharacters() {
   const { favorites } = React.useContext(FavoriteContext);
 
+  const carousel = React.useRef();
+  const [width, setWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+  }, []);
+
   return (
-    <Container>
+    <Container ref={carousel} whileTap={{ cursor: "grabbing" }}>
       <Link href="/">
         <PageTurnerGuide>Home</PageTurnerGuide>
       </Link>
 
       <Title>Favorite Characters</Title>
 
-      <FavoritesContainer>
+      <FavoritesContainer drag="x" dragConstraints={{ right: 0, left: -width }}>
         {favorites.length > 0 ? (
           favorites.map((favorite) => {
             return (

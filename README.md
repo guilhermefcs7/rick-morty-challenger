@@ -39,6 +39,8 @@ which should contain as much information as possible.
 
 - `git clone https://github.com/guilhermefcs7/rick-morty-challenger.git`
 - `cd rick-morty-challenger`
+- `npm install`
+- `npm run dev`
 
 ---
 

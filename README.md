@@ -41,6 +41,7 @@ which should contain as much information as possible.
 - `cd rick-morty-challenger`
 - `npm install`
 - `npm run dev`
+- `open http://localhost:3000 in your browser`
 
 ---
 

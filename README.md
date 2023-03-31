@@ -20,6 +20,7 @@ which should contain as much information as possible.
 
 - [x] Lazy Loading
 - [x] Filtering by character name and status
+- [x] Favorite funcionality
 - [x] Responsive layout
 
 ### Differentials

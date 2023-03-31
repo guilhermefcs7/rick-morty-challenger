@@ -45,12 +45,6 @@ which should contain as much information as possible.
 
 ---
 
-### How to use :
-
-- [Frontend]()
-
----
-
 ### To run tests:
 
 - `ctrl + j - Windows | Ctrl + Shift + P Terminal: New Terminal - Mac`

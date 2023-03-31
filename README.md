@@ -66,7 +66,7 @@ The following technologies were used in the construction of the project:
 
 ---
 
-### Dev
+### Software Developer
 
 <table>
   <tr>

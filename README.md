@@ -1,38 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rick and Morty Challenger (Green Acesso)
 
-## Getting Started
+Project created for the technical challenge of the company Green Access.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Project Status
+<h4 align="center"> 
+	🚧  Project under development...  🚧
+</h4>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How does it work ? 
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+It consists of a front-end system using React, which is capable of integrating and populating data with the Rick and Morty api. Having mainly the possibility of listing characters with search and a details screen
+which should contain as much information as possible.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [x] Lazy Loading
+- [x] Filtering by character name and status
+- [x] Responsive layout
 
-## Learn More
+### Differentials
 
-To learn more about Next.js, take a look at the following resources:
+- [x] React hooks
+- [x] Next.js
+- [x] Styled-components
+- [x] TypeScript
+- [x] Input Validation
+- [x] Automated testing with Jest
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### Getting started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `git clone https://github.com/guilhermefcs7/rick-morty-challenger.git`
+- `cd rick-morty-challenger`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+### How to use :
+
+- [Frontend]()
+
+---
+
+# To run tests:
+
+- `ctrl + j - Windows | Ctrl + Shift + P Terminal: New Terminal - Mac`
+- `yarn test --config jest.config.js`
+
+---
+
+### Techs
+
+The following technologies were used in the construction of the project:
+
+- [Node](https://nodejs.org/en/)
+- [ReactJs](https://pt-br.reactjs.org/)
+- [NextJs](https://nextjs.org/)
+- [Eslint](https://eslint.org/)
+- [StyledComponents](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+
+---
+
+### Dev
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/guilhermefcs7"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/79313483?v=4" width="100px;" alt=""/><br /><sub><b>Guilherme Falcão</b></sub></a><br /></td>
+  </tr>
+</table>

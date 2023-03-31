@@ -26,13 +26,12 @@ import {
   SelectLabelText,
 } from "./styles";
 
-import { Character } from "../../../types/character";
-
 import Link from "next/link";
 import { FavoriteContext } from "../CharacterFavorite/context/FavoriteContext";
+import { CharacterDetail } from "../../../types/characterDetail";
 
 function Home() {
-  const [characters, setCharacters] = React.useState<Character[]>([]);
+  const [characters, setCharacters] = React.useState<CharacterDetail[]>([]);
 
   const [nextPage, setNextPage] = React.useState<string | null>(null);
 
@@ -45,7 +44,7 @@ function Home() {
   const [isSearchButtonLoading, setIsSearchButtonLoading] =
     React.useState(false);
 
-  const [clickedIds, setClickedIds] = React.useState([]);
+  const [clickedIds, setClickedIds] = React.useState<number[]>([]);
 
   const { favorites, setFavorites } = React.useContext(FavoriteContext);
 
@@ -137,7 +136,7 @@ function Home() {
     }
 
     handleFilterSubmit();
-  }, [fetchStatusCharacters, status]);
+  }, [status]);
 
   const handleDebouncedSearch = debounce(handleSubmit, 500);
 

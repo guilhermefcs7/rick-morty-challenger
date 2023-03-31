@@ -20,6 +20,7 @@ which should contain as much information as possible.
 
 - [x] Lazy Loading
 - [x] Filtering by character name and status
+- [x] Favorite funcionality
 - [x] Responsive layout
 
 ### Differentials
@@ -47,7 +48,7 @@ which should contain as much information as possible.
 
 ---
 
-# To run tests:
+### To run tests:
 
 - `ctrl + j - Windows | Ctrl + Shift + P Terminal: New Terminal - Mac`
 - `yarn test --config jest.config.js`

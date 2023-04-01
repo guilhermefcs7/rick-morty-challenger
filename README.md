@@ -8,6 +8,8 @@ Project created for the technical challenge of the company Green Access.
  
 Done  ✅
 
+- `ready for evaluation`
+
 
 ### How does it work ? 
 

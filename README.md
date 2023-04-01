@@ -39,6 +39,8 @@ which should contain as much information as possible.
 
 - `git clone https://github.com/guilhermefcs7/rick-morty-challenger.git`
 - `cd rick-morty-challenger`
+- `code .`
+- `ctrl + j - Windows | Ctrl + Shift + P Terminal: New Terminal - Mac`
 - `npm install`
 - `npm run dev`
 - `open http://localhost:3000 in your browser`

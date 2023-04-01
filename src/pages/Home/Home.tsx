@@ -106,7 +106,9 @@ function Home() {
 
       fetch(`https://rickandmortyapi.com/api/character/?name=${value}`)
         .then((response) => response.json())
+
         .then((data) => setCharacters(data.results))
+
         .catch((error) => console.error(error));
 
       setIsSearchButtonLoading(false);
@@ -115,13 +117,17 @@ function Home() {
 
   const fetchStatusCharacters = async (status: string) => {
     const url = `https://rickandmortyapi.com/api/character/?name=${searchTerm}&status=${status}`;
+
     const response = await fetch(url);
+
     const data = await response.json();
+
     return data.results;
   };
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     handleSubmit(searchTerm);
   };
 
@@ -129,6 +135,7 @@ function Home() {
     async function handleFilterSubmit() {
       try {
         const data = await fetchStatusCharacters(status);
+
         setCharacters(data);
       } catch (error) {
         console.log(error);
@@ -161,6 +168,7 @@ function Home() {
               name="query"
               placeholder="Search for your character "
             />
+
             <SelectLabelText htmlFor="status">
               Search by status:
               <Select
@@ -168,8 +176,11 @@ function Home() {
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}>
                 <option value="">Status</option>
+
                 <option value="Alive">Alive</option>
+
                 <option value="Dead">Dead</option>
+
                 <option value="unknown">Unknown</option>
               </Select>
             </SelectLabelText>
@@ -190,7 +201,9 @@ function Home() {
                     <Image src={image} alt={`${name} thumb`} />
                   </Link>
                 </li>
+
                 <CardTitle>{name} </CardTitle>
+
                 <FavoriteButton
                   onClick={() => {
                     addCharacterToFavorites(id);

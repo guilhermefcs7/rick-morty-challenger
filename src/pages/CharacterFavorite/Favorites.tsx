@@ -15,11 +15,13 @@ import Link from "next/link";
 function FavoriteCharacters() {
   const { favorites } = React.useContext(FavoriteContext);
 
-  const carousel = React.useRef();
+  const carousel = React.useRef<HTMLDivElement>(null);
   const [width, setWidth] = React.useState(0);
 
   React.useEffect(() => {
-    setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+    if (carousel.current) {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
   }, []);
 
   return (
@@ -36,7 +38,9 @@ function FavoriteCharacters() {
             return (
               <CharacterCard key={favorite.id}>
                 <img src={favorite.image} alt={favorite.name} />
+
                 <BadgeButton status={favorite.status} />
+
                 <h2>{favorite.name}</h2>
 
                 <p> Species: {favorite.species}</p>

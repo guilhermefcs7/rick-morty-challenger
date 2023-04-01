@@ -28,6 +28,7 @@ describe("Home", () => {
     makeSut();
 
     const input = screen.getByPlaceholderText("Search for your character");
+
     expect(input).toBeInTheDocument();
   });
 
@@ -35,6 +36,7 @@ describe("Home", () => {
     makeSut();
 
     const button = screen.getByText("Search");
+
     expect(button).toBeInTheDocument();
   });
 

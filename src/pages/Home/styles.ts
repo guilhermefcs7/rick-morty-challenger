@@ -155,6 +155,7 @@ export const Card = styled.div`
 export const Image = styled.img`
   width: 200px;
   height: 200px;
+
   border-radius: 80%;
   transition: all 0.3s ease-in-out;
 

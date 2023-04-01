@@ -58,11 +58,11 @@ which should contain as much information as possible.
 
 The following technologies were used in the construction of the project:
 
-- [Node](https://nodejs.org/en/)
-- [ReactJs](https://pt-br.reactjs.org/)
-- [NextJs](https://nextjs.org/)
+- [Node.Js](https://nodejs.org/en/)
+- [React.Js](https://pt-br.reactjs.org/)
+- [Next.Js](https://nextjs.org/)
 - [Eslint](https://eslint.org/)
-- [StyledComponents](https://styled-components.com/)
+- [Styled-Components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Jest](https://jestjs.io/pt-BR/)
 

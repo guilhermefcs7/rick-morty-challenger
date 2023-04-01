@@ -5,9 +5,9 @@ Project created for the technical challenge of the company Green Access.
 ---
 
 ### Project Status
-<h4 align="center"> 
-	✅  Done  ✅
-</h4>
+ 
+Done  ✅
+
 
 ### How does it work ? 
 

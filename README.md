@@ -5,22 +5,24 @@ Project created for the technical challenge of the company Green Access.
 ---
 
 ### Project Status
-<h4 align="center"> 
-	🚧  Project under development...  🚧
-</h4>
+ 
+Done  ✅
+
+- `ready for evaluation`
+
 
 ### How does it work ? 
 
-It consists of a front-end system using React, which is capable of integrating and populating data with the Rick and Morty api. Having mainly the possibility of listing characters with search and a details screen
-which should contain as much information as possible.
+It consists of a front-end system using React, which is capable of integrating and populating data with the Rick and Morty api. Having mainly the possibility of listing characters, bookmarking and filtering, with search funcionality and a details screen which should contain as much information as possible.
 
 ---
 
 ### Features
 
 - [x] Lazy Loading
+- [x] Listing
+- [x] Bookmarking 
 - [x] Filtering by character name and status
-- [x] Favorite funcionality
 - [x] Responsive layout
 
 ### Differentials
@@ -58,11 +60,11 @@ which should contain as much information as possible.
 
 The following technologies were used in the construction of the project:
 
-- [Node](https://nodejs.org/en/)
-- [ReactJs](https://pt-br.reactjs.org/)
-- [NextJs](https://nextjs.org/)
+- [Node.Js](https://nodejs.org/en/)
+- [React.Js](https://pt-br.reactjs.org/)
+- [Next.Js](https://nextjs.org/)
 - [Eslint](https://eslint.org/)
-- [StyledComponents](https://styled-components.com/)
+- [Styled-Components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Jest](https://jestjs.io/pt-BR/)
 

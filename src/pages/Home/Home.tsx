@@ -96,29 +96,31 @@ function Home() {
 
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchTerm(event.target.value);
-
-    handleDebouncedSearch(event.target.value);
   }
 
   function handleSubmit(value: string) {
-    if (searchTerm) {
-      setIsSearchButtonLoading(true);
+    setIsSearchButtonLoading(true);
 
-      fetch(`https://rickandmortyapi.com/api/character/?name=${value}`)
-        .then((response) => response.json())
+    let endpoint = "https://rickandmortyapi.com/api/character/";
 
-        .then((data) => setCharacters(data.results))
-
-        .catch((error) => console.error(error));
-
-      setIsSearchButtonLoading(false);
+    if (value) {
+      endpoint += `?name=${value}`;
     }
+
+    fetch(endpoint)
+      .then((response) => response.json())
+
+      .then((data) => setCharacters(data.results))
+
+      .catch((error) => console.error(error))
+
+      .finally(() => setIsSearchButtonLoading(false));
   }
 
   const fetchStatusCharacters = async (status: string) => {
-    const url = `https://rickandmortyapi.com/api/character/?name=${searchTerm}&status=${status}`;
+    const endpoint = `https://rickandmortyapi.com/api/character/?name=${searchTerm}&status=${status}`;
 
-    const response = await fetch(url);
+    const response = await fetch(endpoint);
 
     const data = await response.json();
 
@@ -128,7 +130,7 @@ function Home() {
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    handleSubmit(searchTerm);
+    debouncedHandleSubmit(searchTerm);
   };
 
   React.useEffect(() => {
@@ -145,7 +147,12 @@ function Home() {
     handleFilterSubmit();
   }, [status]);
 
-  const handleDebouncedSearch = debounce(handleSubmit, 500);
+  const debouncedHandleSubmit = React.useCallback(
+    debounce((value: string) => {
+      handleSubmit(value);
+    }, 500),
+    []
+  );
 
   return (
     <Container>
@@ -192,27 +199,35 @@ function Home() {
         </HeaderContent>
 
         <Grid>
-          {characters.map((result) => {
-            const { id, name, image } = result;
-            return (
-              <Card key={id}>
-                <li>
-                  <Link href={`/CharacterDetails/${id}`}>
-                    <Image src={image} alt={`${name} thumb`} />
-                  </Link>
-                </li>
+          {characters ? (
+            characters.map((result) => {
+              const { id, name, image } = result;
+              return (
+                <Card key={id}>
+                  <li>
+                    <Link href={`/CharacterDetails/${id}`}>
+                      <Image src={image} alt={`${name} thumb`} />
+                    </Link>
+                  </li>
 
-                <CardTitle>{name} </CardTitle>
+                  <CardTitle>{name} </CardTitle>
 
-                <FavoriteButton
-                  onClick={() => {
-                    addCharacterToFavorites(id);
-                  }}>
-                  {clickedIds.includes(id) ? "Favorited!" : "Favorite"}
-                </FavoriteButton>
+                  <FavoriteButton
+                    onClick={() => {
+                      addCharacterToFavorites(id);
+                    }}>
+                    {clickedIds.includes(id) ? "Favorited!" : "Favorite"}
+                  </FavoriteButton>
+                </Card>
+              );
+            })
+          ) : (
+            <>
+              <Card>
+                <CardTitle>Character Not Found</CardTitle>
               </Card>
-            );
-          })}
+            </>
+          )}
         </Grid>
 
         {nextPage && (

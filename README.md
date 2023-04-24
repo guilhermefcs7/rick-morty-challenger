@@ -1,6 +1,6 @@
-# Rick and Morty Challenger (Green Acesso)
+# Rick and Morty Challenger
 
-Project created for the technical challenge of the company Green Access.
+Project created for the technical challenge.
 
 ---
 
